@@ -5,7 +5,7 @@
 namespace Drupal\username_check\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Component\Utility\String;
+use Drupal\Component\Utility\SafeMarkup;
 use Drupal\Core\Url;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -32,7 +32,7 @@ class DefaultController extends ControllerBase {
       }
       else {
         //$username = check_plain($username);
-        $username = String::checkPlain($username);
+        $username = SafeMarkup::checkPlain($username);
         $ret = $this->_username_check_is_user_exists($username);
         if ($ret) {
           $url = Url::fromRoute("user.page");
@@ -76,7 +76,7 @@ function _username_check_is_user_exists($username) {
           ]);
       }
       else {
-        $username = String::checkPlain($username);
+        $username = SafeMarkup::checkPlain($username);
         // check to see if this username is the current users username
         $ret = $this->_username_check_is_current_user($username);
         print_r($ret);die();
@@ -128,7 +128,7 @@ function _username_check_is_current_user($username) {
           ]);
       }
       else {
-        $mail = String::checkPlain($mail);
+        $mail = SafeMarkup::checkPlain($mail);
         $ret = $this->_username_check_is_mail_exists($mail);
 
         if ($ret) {
