@@ -154,7 +154,7 @@ function _username_check_is_current_user($username) {
  * Query user table to check if such mail is already exists.
  */
 public function _username_check_is_mail_exists($mail) {
-  return db_query("SELECT COUNT(u.mail) count FROM {users_field_data} u WHERE LOWER(u.mail) = LOWER(:mail)", array(':mail' => $mail))->fetchField();
+  return db_query("SELECT COUNT(u.mail) count FROM {users_field_data} u WHERE LOWER(u.mail) = LOWER(@mail)", array('@mail' => $mail))->fetchField();
 }
 
 }
