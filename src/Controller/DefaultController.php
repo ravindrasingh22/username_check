@@ -6,7 +6,7 @@ namespace Drupal\username_check\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Component\Utility\SafeMarkup;
-// Updated after https://www.drupal.org/node/2488054 
+// Updated after https://www.drupal.org/node/2488054
 use Drupal\Core\Url;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
